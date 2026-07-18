@@ -7,7 +7,7 @@
 
 <!-- Blogger Post Thumbnail (Hidden from users, visible to crawlers) -->
 <div class="hidden">
-  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/KPU_Logo.svg/1280px-KPU_Logo.svg.png" alt="Thumbnail Buku Tamu KPU">
+  <img src="https://www.kpu.go.id/images/1627539868logo-kpu.png" alt="Thumbnail Buku Tamu KPU">
 </div>
 
 <!-- Fonts & Icon Packs -->
@@ -265,7 +265,7 @@ canvas {
         <!-- Logo & Title Instansi -->
         <div class="flex flex-col items-center">
           <div class="w-24 h-24 md:w-32 md:h-32 mb-3 p-2 bg-white rounded-3xl shadow-xl border border-slate-100 transition-transform hover:scale-105 flex items-center justify-center">
-            <img id="logoInstansiLanding" src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/KPU_Logo.svg/1280px-KPU_Logo.svg.png" alt="Logo KPU" class="w-full h-full object-contain">
+            <img id="logoInstansiLanding" src="https://www.kpu.go.id/images/1627539868logo-kpu.png" alt="Logo KPU" class="w-full h-full object-contain">
           </div>
           <h2 class="font-black text-sm md:text-xl text-black tracking-widest uppercase leading-none m-0">KOMISI PEMILIHAN UMUM</h2>
           <h3 class="font-black text-sm md:text-xl text-black mt-1 tracking-wide uppercase instansi-name-label leading-none m-0">KABUPATEN TANJUNG JABUNG TIMUR</h3>
@@ -301,7 +301,7 @@ canvas {
           <i class="fa-solid fa-arrow-left"></i> Kembali
         </button>
         <div class="w-14 h-14 md:w-16 md:h-16 mb-2 flex items-center justify-center">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/KPU_Logo.svg/1280px-KPU_Logo.svg.png" alt="Logo KPU" class="w-full h-full object-contain">
+          <img src="https://www.kpu.go.id/images/1627539868logo-kpu.png" alt="Logo KPU" class="w-full h-full object-contain">
         </div>
         <h2 class="font-black text-sm md:text-lg text-black tracking-wider uppercase leading-none m-0">KOMISI PEMILIHAN UMUM</h2>
         <h3 class="font-black text-sm md:text-lg text-black mt-1 tracking-wide uppercase leading-none m-0 instansi-name-label">KABUPATEN TANJUNG JABUNG TIMUR</h3>
@@ -411,8 +411,11 @@ canvas {
           <div class="border-t border-slate-100 pt-6 space-y-4">
             <label class="text-xs md:text-sm font-bold text-slate-700 block">Metode Pengambilan Foto Tamu <span id="lblFotoReq" class="text-red-500">*</span></label>
             <div class="flex flex-wrap gap-3">
-              <button type="button" onclick="startWebcam()" class="flex-1 min-w-[140px] bg-slate-100 hover:bg-slate-200 active:scale-95 text-slate-700 rounded-xl p-3 font-semibold text-xs md:text-sm flex items-center justify-center gap-2 border border-slate-200 transition-all">
-                <i class="fa-solid fa-camera text-theme-primary"></i> Ambil Foto Langsung
+              <button type="button" onclick="startWebcam('user')" class="flex-1 min-w-[140px] bg-slate-100 hover:bg-slate-200 active:scale-95 text-slate-700 rounded-xl p-3 font-semibold text-xs md:text-sm flex items-center justify-center gap-2 border border-slate-200 transition-all">
+                <i class="fa-solid fa-camera-rotate text-theme-primary"></i> Kamera Depan
+              </button>
+              <button type="button" onclick="startWebcam('environment')" class="flex-1 min-w-[140px] bg-slate-100 hover:bg-slate-200 active:scale-95 text-slate-700 rounded-xl p-3 font-semibold text-xs md:text-sm flex items-center justify-center gap-2 border border-slate-200 transition-all">
+                <i class="fa-solid fa-camera text-theme-primary"></i> Kamera Belakang
               </button>
               <button type="button" onclick="triggerFileInput()" class="flex-1 min-w-[140px] bg-slate-100 hover:bg-slate-200 active:scale-95 text-slate-700 rounded-xl p-3 font-semibold text-xs md:text-sm flex items-center justify-center gap-2 border border-slate-200 transition-all">
                 <i class="fa-solid fa-upload text-theme-primary"></i> Unggah File Foto
@@ -564,22 +567,6 @@ canvas {
             <canvas id="visitChart" class="w-full h-64 bg-slate-50 rounded-xl border border-slate-100"></canvas>
           </div>
 
-          <!-- KIRIM WA TO EMPLOYEES -->
-          <div id="pegawaiNotifyBox" class="bg-white border border-slate-200 rounded-2xl shadow-md p-5">
-            <div class="flex flex-col lg:flex-row lg:items-end gap-3">
-              <div class="flex-1">
-                <label class="text-xs font-bold text-slate-600 block mb-1.5">Pilih Pegawai Penerima Notifikasi WA</label>
-                <select id="notifyPegawai" class="w-full h-11 px-4 bg-slate-50 border border-slate-200 focus:border-theme-primary rounded-xl text-sm outline-none bg-white"></select>
-              </div>
-              <div class="flex-[2]">
-                <label class="text-xs font-bold text-slate-600 block mb-1.5">Isi Pesan</label>
-                <input id="notifyMessage" class="w-full h-11 px-4 bg-slate-50 border border-slate-200 focus:border-theme-primary rounded-xl text-sm outline-none" value="Mohon ditindaklanjuti, terdapat tamu yang perlu dilayani di front office.">
-              </div>
-              <button onclick="sendWaToEmployee()" class="bg-emerald-600 hover:bg-emerald-700 text-white h-11 px-5 rounded-xl font-bold text-xs shadow-md flex items-center justify-center gap-2 shrink-0 transition-all active:scale-95"><i class="fa-brands fa-whatsapp"></i> Kirim WA</button>
-            </div>
-            <p class="text-[10px] text-slate-400 mt-2">Pegawai yang didaftarkan akan menerima notifikasi pesan melalui API Gateway WhatsApp yang dikonfigurasi pada backend.</p>
-          </div>
-
           <!-- Filter Pencarian -->
           <div class="relative">
             <i class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-slate-400"></i>
@@ -677,7 +664,7 @@ canvas {
               <!-- Kop Instansi Tengah (Tahoma 12px & Spasi dipadatkan) -->
               <div class="text-center border-b-2 border-double border-slate-900 pb-3 mb-5">
                 <div class="flex justify-center mb-1">
-                  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/KPU_Logo.svg/1280px-KPU_Logo.svg.png" alt="Logo KPU" class="h-12 object-contain m-0">
+                  <img src="https://www.kpu.go.id/images/1627539868logo-kpu.png" alt="Logo KPU" class="h-12 object-contain m-0">
                 </div>
                 <h2 class="kop-surat-text m-0 p-0">KOMISI PEMILIHAN UMUM</h2>
                 <h3 class="kop-surat-text mt-1 p-0 instansi-name-label">KABUPATEN TANJUNG JABUNG TIMUR</h3>
@@ -940,6 +927,36 @@ canvas {
   </div>
 
   <!-- MODAL: KONFIRMASI HAPUS -->
+  
+  <!-- MODAL KIRIM WA -->
+  <div id="waModal" class="hidden fixed inset-0 bg-black/60 z-[2147483647] flex items-center justify-center p-4">
+    <div class="bg-white p-6 rounded-3xl max-w-md w-full shadow-2xl border border-slate-100">
+      <div class="flex items-center justify-between mb-4">
+        <h3 class="font-extrabold text-lg text-slate-800 uppercase">Kirim WA ke Pegawai</h3>
+        <button onclick="closeWaModal()" class="w-8 h-8 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-500 flex items-center justify-center"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+      <div class="space-y-4">
+        <div>
+          <label class="text-xs font-bold text-slate-600 block mb-1.5">Pilih Pegawai Penerima Notifikasi WA</label>
+          <select id="notifyPegawai" class="w-full h-11 px-4 bg-slate-50 border border-slate-200 focus:border-theme-primary rounded-xl text-sm outline-none bg-white"></select>
+        </div>
+        <div>
+          <label class="text-xs font-bold text-slate-600 block mb-1.5">Isi Pesan Notifikasi WA</label>
+          <div class="relative group">
+            <select id="notifyMessage" class="w-full h-11 pl-4 pr-10 bg-slate-50 border border-slate-200 focus:border-theme-primary rounded-xl text-sm outline-none appearance-none cursor-pointer bg-white">
+              <option value="Halo {pegawai}, ada tamu&#10;Nama: {nama}&#10;Asal/Instansi: {asal}&#10;Keperluan: {keperluan}&#10;Tanggal: {tanggal}&#10;Waktu: {waktu}&#10;Mohon ditindaklanjuti.">Halo {pegawai}, ada tamu | Nama: {nama} | Asal/Instansi: {asal} | Keperluan: {keperluan} | Tanggal: {tanggal} | Waktu: {waktu} | Mohon ditindaklanjuti.</option>
+            </select>
+            <i class="fa-solid fa-chevron-down absolute right-4 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none text-xs"></i>
+          </div>
+        </div>
+      </div>
+      <div class="flex gap-2 mt-6">
+        <button onclick="closeWaModal()" class="flex-1 bg-slate-100 py-2.5 rounded-xl font-bold text-xs text-slate-700">Batal</button>
+        <button type="button" onclick="sendWaToEmployee()" class="flex-1 bg-emerald-600 hover:bg-emerald-700 py-2.5 rounded-xl font-bold text-xs text-white flex items-center justify-center gap-2"><i class="fa-brands fa-whatsapp"></i> Kirim WA</button>
+      </div>
+    </div>
+  </div>
+
   <div id="customConfirmModal" class="hidden fixed inset-0 bg-black/60 z-[2147483647] flex items-center justify-center p-4">
     <div class="bg-white p-6 rounded-3xl max-w-sm w-full shadow-2xl text-center border border-slate-100">
       <div class="w-14 h-14 bg-red-50 text-red-600 rounded-full flex items-center justify-center mx-auto mb-4">
@@ -1018,7 +1035,7 @@ canvas {
 const IS_PREVIEW = false; // UBAH KE false JIKA AKAN DI-DEPLOY KE GOOGLE APPS SCRIPT
 const GAS_URL = "https://script.google.com/macros/s/AKfycbxNCXKzALkTHr5gVdnxx7IAQom8RBEDb_SseOvy8D2KvEkEAdwl-E0pW3L6FEBiVOC4wg/exec";
 
-const DEFAULT_LOGO_KPU = "https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/KPU_Logo.svg/1280px-KPU_Logo.svg.png";
+const DEFAULT_LOGO_KPU = "https://www.kpu.go.id/images/1627539868logo-kpu.png";
 
 let fotoData = '';
 let signed = false;
@@ -1139,16 +1156,38 @@ function setStarRating(rating) {
 }
 
 // Media Capturing (Webcam)
-async function startWebcam() {
+async function startWebcam(facingMode = 'user') {
   const video = document.getElementById('video');
   const container = document.getElementById('webcamContainer');
+  const mode = facingMode === 'environment' ? 'environment' : 'user';
+
+  stopWebcam();
   container.classList.remove('hidden');
+
   try {
-    localStream = await navigator.mediaDevices.getUserMedia({ video: { facingMode: "user" } });
+    if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
+      throw new Error('Browser tidak mendukung akses kamera.');
+    }
+
+    // "environment" memilih kamera belakang, sedangkan "user" memilih kamera depan.
+    try {
+      localStream = await navigator.mediaDevices.getUserMedia({
+        video: { facingMode: { exact: mode } },
+        audio: false
+      });
+    } catch (exactError) {
+      // Cadangan untuk perangkat/browser yang tidak mendukung mode exact.
+      localStream = await navigator.mediaDevices.getUserMedia({
+        video: { facingMode: { ideal: mode } },
+        audio: false
+      });
+    }
+
     video.srcObject = localStream;
+    await video.play();
   } catch (err) {
-    alertBox('guestAlert', 'Tidak dapat memuat kamera: ' + err.message, 'error');
-    container.classList.add('hidden');
+    stopWebcam();
+    alertBox('guestAlert', 'Tidak dapat memuat kamera ' + (mode === 'environment' ? 'belakang' : 'depan') + ': ' + err.message, 'error');
   }
 }
 
@@ -1450,7 +1489,7 @@ async function submitGuest(e) {
 
 async function login(e) {
   e.preventDefault();
-  let r = await api('login', { user: user.value, pass: pass.value });
+  let r = await api('login', { user: String(user.value).trim().toLowerCase(), pass: String(pass.value).trim() });
   if (r.status === 'success') {
     currentUser = (r.data && r.data.user) ? r.data.user : { role: r.role || 'admin', name: r.name || user.value };
     currentUser.role = currentUser.role || 'admin';
@@ -1779,14 +1818,67 @@ async function deleteEmployee(id) {
   if (r.status === 'success') { alertBox('adminAlert', 'Pegawai berhasil dihapus!', 'success'); loadEmployees(); }
 }
 
-async function sendWaToEmployee() {
-  const id = document.getElementById('notifyPegawai')?.value;
-  const msg = document.getElementById('notifyMessage')?.value || '';
-  const emp = employees.find(e => e.id == id);
-  if (!emp) return alertBox('adminAlert', 'Pilih pegawai penerima notifikasi terlebih dahulu.', 'error');
-  let r = await api('send_wa_employee', { employee_id: id, name: emp.name, target: emp.wa, message: msg, sender: currentUser.name || currentUser.user || 'Petugas' });
-  if (r.status === 'success') alertBox('adminAlert', r.message || 'Notifikasi WA berhasil dikirim!', 'success');
-  else alertBox('adminAlert', r.message || 'Gagal mengirim notifikasi WA.', 'error');
+
+let waTargetGuestId = null;
+function openWaModal(guestId) {
+  waTargetGuestId = guestId;
+  document.getElementById('waModal').classList.remove('hidden');
+}
+function closeWaModal() {
+  waTargetGuestId = null;
+  document.getElementById('waModal').classList.add('hidden');
+}
+
+function sendWaToEmployee() {
+  try {
+    const employeeId = document.getElementById('notifyPegawai')?.value;
+    const employee = employees.find(item => String(item.id) === String(employeeId));
+    const guest = allGuests.find(item => String(item.id) === String(waTargetGuestId));
+
+    if (!employee) {
+      alertBox('adminAlert', 'Pilih pegawai penerima notifikasi terlebih dahulu.', 'error');
+      return;
+    }
+    if (!guest) {
+      alertBox('adminAlert', 'Data tamu tidak ditemukan. Silakan muat ulang data.', 'error');
+      return;
+    }
+
+    let phone = String(employee.wa || '').replace(/\D/g, '');
+    if (phone.startsWith('0')) phone = '62' + phone.substring(1);
+    else if (phone.startsWith('8')) phone = '62' + phone;
+
+    if (!/^62\d{8,13}$/.test(phone)) {
+      alertBox('adminAlert', 'Nomor WhatsApp pegawai tidak valid. Gunakan format 08... atau 628....', 'error');
+      return;
+    }
+
+    const message = [
+      `Halo ${employee.name || 'Pegawai'}, ada tamu`,
+      `Nama: ${guest.nama || '-'}`,
+      `Asal/Instansi: ${guest.instansi || '-'}`,
+      `Keperluan: ${guest.keperluan || '-'}`,
+      `Tanggal: ${guest.tanggal ? fmtDate(guest.tanggal) : '-'}`,
+      `Waktu: ${guest.waktu ? fmtTime(guest.waktu) : '-'}`,
+      'Mohon ditindaklanjuti.'
+    ].join('\n');
+
+    const waUrl = 'https://wa.me/' + phone + '?text=' + encodeURIComponent(message);
+
+    // Dibuat langsung dari aksi klik agar tidak diblokir browser.
+    const waWindow = window.open(waUrl, '_blank');
+    if (!waWindow) {
+      // Cadangan jika pop-up diblokir: buka WhatsApp pada tab yang sama.
+      window.location.href = waUrl;
+      return;
+    }
+
+    closeWaModal();
+    alertBox('adminAlert', `WhatsApp dibuka untuk ${employee.name}.`, 'success');
+  } catch (error) {
+    console.error('Gagal membuka WhatsApp:', error);
+    alertBox('adminAlert', 'Tombol WA gagal dijalankan: ' + error.message, 'error');
+  }
 }
 
 async function saveGeneralSettings(e) {
@@ -1880,12 +1972,25 @@ async function executeDelete() {
 
 function fmtTime(v) {
   if (!v) return '-';
-  let str = v.toString().trim();
+  const str = String(v).trim();
+
+  // Nilai baru dari backend selalu berbentuk HH:mm.
+  let match = str.match(/^(\d{1,2})[:.](\d{2})(?::\d{2})?$/);
+  if (match) return String(match[1]).padStart(2, '0') + ':' + match[2];
+
+  // Kompatibilitas untuk data lama yang pernah dikirim sebagai ISO datetime.
   if (str.includes('T')) {
-    let parts = str.split('T');
-    if (parts.length > 1) return parts[1].substring(0, 5);
+    const dateValue = new Date(str);
+    if (!isNaN(dateValue)) {
+      return new Intl.DateTimeFormat('id-ID', {
+        timeZone: 'Asia/Jakarta',
+        hour: '2-digit',
+        minute: '2-digit',
+        hourCycle: 'h23'
+      }).format(dateValue).replace('.', ':');
+    }
   }
-  if (str.match(/^\d{2}:\d{2}:\d{2}$/)) return str.substring(0, 5);
+
   return str;
 }
 
@@ -1926,8 +2031,9 @@ function renderGuests() {
       <td class="p-4 text-center">${x.ttd ? `<img class="h-10 max-w-[90px] object-contain mx-auto bg-white border rounded-lg p-1" src="${x.ttd}">` : '<span class="text-[10px] text-slate-400 italic">-</span>'}</td>
       <td class="p-4">
         <div class="flex items-center justify-center gap-1.5">
-          <button onclick="viewGuest('${x.id}')" class="w-8 h-8 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-600 flex items-center justify-center"><i class="fa-solid fa-eye text-xs"></i></button>
-          <button onclick="confirmDelete('${x.id}')" class="w-8 h-8 rounded-lg bg-red-50 hover:bg-red-100 text-red-600 flex items-center justify-center"><i class="fa-solid fa-trash text-xs"></i></button>
+          <button onclick="openWaModal('${x.id}')" class="w-8 h-8 rounded-lg bg-emerald-50 hover:bg-emerald-100 text-emerald-600 flex items-center justify-center" title="Kirim WA"><i class="fa-brands fa-whatsapp text-xs"></i></button>
+          <button onclick="viewGuest('${x.id}')" class="w-8 h-8 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-600 flex items-center justify-center" title="Lihat"><i class="fa-solid fa-eye text-xs"></i></button>
+          <button onclick="confirmDelete('${x.id}')" class="w-8 h-8 rounded-lg bg-red-50 hover:bg-red-100 text-red-600 flex items-center justify-center" title="Hapus"><i class="fa-solid fa-trash text-xs"></i></button>
         </div>
       </td>
     </tr>
